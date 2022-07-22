@@ -1,0 +1,5 @@
+packageName: edu_sharing_client
+projectName: edu-sharing-client
+packageVersion: 0.1.0
+generateSourceCodeOnly: true
+

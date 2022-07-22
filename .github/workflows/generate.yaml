@@ -1,0 +1,20 @@
+name: "Generate API Client"
+
+on: {push: {branches: [main]}}
+
+jobs:
+  generate-python-client:
+    runs-on: ubuntu-latest
+    name: Generate python client
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Use the action to generate a client package
+      # This uses the default path for the openapi document and thus assumes there is an openapi.json in the current workspace.
+      - name: Generate Python Client
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: python-experimental
+          config-file: python-generator-config.yaml
+          openapi-file: edu-sharing-api.json
